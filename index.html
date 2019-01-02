@@ -75,8 +75,8 @@
                         font-family: sans-serif;
                         color: #777777;
                     "><span style="">We deal in:&nbsp;&nbsp;</span></h1></li>
-                    <li id="select_1"><a  href="#" data-filter=".corporate">Sales of New/Used Injection Moulding Machines</a></li>
-                    <li><a href="#" data-filter=".creative">Installation & Servicing of Parts & Accessories</a></li>
+                    <li id="select_1"><a  id="sel1" href="#" data-filter=".corporate">Sales of New/Used Injection Moulding Machines</a></li>
+                    <li><a href="#" id="sel2" data-filter=".creative">Installation & Servicing of Parts & Accessories</a></li>
                     <!-- <li><a href="#" data-filter=".corporate"> Web  </a></li> -->
                     <!-- <li><a href="#" data-filter=".portfolio">Illustration </a></li> -->
                     <!-- <li><a href="#" data-filter=".portfolio">Media </a></li> -->
@@ -466,11 +466,17 @@ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
 <script>
 
     $("document").ready(function() {
-    setTimeout(function() {
-        $("#select_1 a").trigger('click');
-        console.log("hua");
-    },50);
-});
+        var $portfolio = $('.portfolio-items');
+        
+        $portfolio.isotope({
+            itemSelector : '.portfolio-item',
+            layoutMode : 'fitRows'
+        });
+        // $("#sel1").removeClass('active');
+            $("#sel1").addClass('active');
+            var selector = $("#sel1").attr('data-filter');
+            $portfolio.isotope({ filter: selector });
+    });
 
     // $(document).ready(function($) {
         
